@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:wsap="http://schemas.xmlsoap.org/ws/2004/08/addressing/policy" xmlns:wsa10="http://www.w3.org/2005/08/addressing" xmlns:tns="http://tempuri.org/" xmlns:msc="http://schemas.microsoft.com/ws/2005/12/wsdl/contract" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:wsx="http://schemas.xmlsoap.org/ws/2004/09/mex" xmlns:wsp="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:wsa="http://schemas.xmlsoap.org/ws/2004/08/addressing" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:wsaw="http://www.w3.org/2006/05/addressing/wsdl" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" xmlns:xsd="http://www.w3.org/2001/XMLSchema" name="FileServer" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsp:Policy wsu:Id="NetTcpBinding_IFileServer_policy">
+    <wsp:ExactlyOne>
+      <wsp:All>
+        <msb:BinaryEncoding xmlns:msb="http://schemas.microsoft.com/ws/06/2004/mspolicy/netbinary1" />
+        <sp:TransportBinding xmlns:sp="http://schemas.xmlsoap.org/ws/2005/07/securitypolicy">
+          <wsp:Policy>
+            <sp:TransportToken>
+              <wsp:Policy>
+                <msf:WindowsTransportSecurity xmlns:msf="http://schemas.microsoft.com/ws/2006/05/framing/policy">
+                  <msf:ProtectionLevel>EncryptAndSign</msf:ProtectionLevel>
+                </msf:WindowsTransportSecurity>
+              </wsp:Policy>
+            </sp:TransportToken>
+            <sp:AlgorithmSuite>
+              <wsp:Policy>
+                <sp:Basic256 />
+              </wsp:Policy>
+            </sp:AlgorithmSuite>
+            <sp:Layout>
+              <wsp:Policy>
+                <sp:Strict />
+              </wsp:Policy>
+            </sp:Layout>
+          </wsp:Policy>
+        </sp:TransportBinding>
+        <wsaw:UsingAddressing />
+      </wsp:All>
+    </wsp:ExactlyOne>
+  </wsp:Policy>
+  <wsdl:types>
+    <xsd:schema targetNamespace="http://tempuri.org/Imports">
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+    </xsd:schema>
+  </wsdl:types>
+  <wsdl:message name="IFileServer_GetSum_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetSum" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_GetSum_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetSumResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_ProvideInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:ProvideInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_ProvideInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:ProvideInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_RequestInfo_InputMessage">
+    <wsdl:part name="parameters" element="tns:RequestInfo" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_RequestInfo_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RequestInfoResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_FileDelete_InputMessage">
+    <wsdl:part name="parameters" element="tns:FileDelete" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_FileDelete_OutputMessage">
+    <wsdl:part name="parameters" element="tns:FileDeleteResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_GetFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:GetFiles" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_GetFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:GetFilesResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_RenameUploadedFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:RenameUploadedFile" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_RenameUploadedFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:RenameUploadedFileResponse" />
+  </wsdl:message>
+  <wsdl:portType name="IFileServer">
+    <wsdl:operation name="GetSum">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/GetSum" message="tns:IFileServer_GetSum_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/GetSumResponse" message="tns:IFileServer_GetSum_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="ProvideInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/ProvideInfo" message="tns:IFileServer_ProvideInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/ProvideInfoResponse" message="tns:IFileServer_ProvideInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RequestInfo">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/RequestInfo" message="tns:IFileServer_RequestInfo_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/RequestInfoResponse" message="tns:IFileServer_RequestInfo_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="FileDelete">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/FileDelete" message="tns:IFileServer_FileDelete_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/FileDeleteResponse" message="tns:IFileServer_FileDelete_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/GetFiles" message="tns:IFileServer_GetFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/GetFilesResponse" message="tns:IFileServer_GetFiles_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="RenameUploadedFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/RenameUploadedFile" message="tns:IFileServer_RenameUploadedFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/RenameUploadedFileResponse" message="tns:IFileServer_RenameUploadedFile_OutputMessage" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BasicHttpBinding_IFileServer" type="tns:IFileServer">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="GetSum">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/GetSum" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvideInfo">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/ProvideInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestInfo">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/RequestInfo" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileDelete">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/FileDelete" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/GetFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenameUploadedFile">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/RenameUploadedFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="NetTcpBinding_IFileServer" type="tns:IFileServer">
+    <wsp:PolicyReference URI="#NetTcpBinding_IFileServer_policy" />
+    <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
+    <wsdl:operation name="GetSum">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/GetSum" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="ProvideInfo">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/ProvideInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RequestInfo">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/RequestInfo" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="FileDelete">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/FileDelete" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="GetFiles">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/GetFiles" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RenameUploadedFile">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/RenameUploadedFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="FileServer">
+    <wsdl:port name="BasicHttpBinding_IFileServer" binding="tns:BasicHttpBinding_IFileServer">
+      <soap:address location="http://localhost:8080/FileServer.FileServer" />
+    </wsdl:port>
+    <wsdl:port name="NetTcpBinding_IFileServer" binding="tns:NetTcpBinding_IFileServer">
+      <soap12:address location="net.tcp://localhost:49234/FileServer.FileServer" />
+      <wsa10:EndpointReference>
+        <wsa10:Address>net.tcp://localhost:49234/FileServer.FileServer</wsa10:Address>
+        <Identity xmlns="http://schemas.xmlsoap.org/ws/2006/02/addressingidentity">
+          <Upn>DESKTOP-G2E07QV\antko</Upn>
+        </Identity>
+      </wsa10:EndpointReference>
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

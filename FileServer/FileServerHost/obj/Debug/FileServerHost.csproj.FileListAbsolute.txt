@@ -1,0 +1,9 @@
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServerHost.exe.config
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServerHost.exe
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServerHost.pdb
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServer.dll
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServer.pdb
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\bin\Debug\FileServer.dll.config
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\obj\Debug\FileServerHost.csprojResolveAssemblyReference.cache
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\obj\Debug\FileServerHost.exe
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServerHost\obj\Debug\FileServerHost.pdb

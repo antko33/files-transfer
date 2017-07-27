@@ -1,0 +1,13 @@
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\bin\Debug\FileClient.exe.config
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\bin\Debug\FileClient.exe
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\bin\Debug\FileClient.pdb
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\MainWindow.g.cs
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\App.g.cs
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient_MarkupCompile.cache
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient_MarkupCompile.lref
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\MainWindow.baml
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.g.resources
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.Properties.Resources.resources
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.csproj.GenerateResource.Cache
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.exe
+c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.pdb
