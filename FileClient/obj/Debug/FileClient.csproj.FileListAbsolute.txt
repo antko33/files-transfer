@@ -11,3 +11,4 @@ c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Deb
 c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.csproj.GenerateResource.Cache
 c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.exe
 c:\users\antko\onedrive\documents\visual studio 2017\Projects\FileClient\obj\Debug\FileClient.pdb
+C:\Users\antko\OneDrive\Documents\Visual Studio 2017\Projects\FileClient\obj\Debug\FileClient.csprojResolveAssemblyReference.cache

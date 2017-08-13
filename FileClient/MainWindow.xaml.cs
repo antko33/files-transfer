@@ -58,7 +58,7 @@ namespace FileClient
         {
             var client = new FileServer.FileServerClient("BasicHttpBinding_IFileServer");
             string filename = listBox.SelectedItem.ToString();  //  Выбираем файл для загрузки
-            if (filename == "") return;
+            if (listBox.SelectedItem == null) return;
 
             var saveFD = new SaveFileDialog();  // Диалоговое окно сохранения файла
             saveFD.CheckFileExists = false; //  Чтобы не ругался на несуществующее имя файла
@@ -117,13 +117,13 @@ namespace FileClient
         private void btnDelete_Click(object sender, RoutedEventArgs e)
         {
             var client = new FileServer.FileServerClient("BasicHttpBinding_IFileServer");
-            string item = listBox.SelectedItem.ToString();  //  Имя удаляемого файла
-            if (item == "") return;
-
-            listBox.Items.Remove(item);
-
             try
             {
+                string item = listBox.SelectedItem.ToString();  //  Имя удаляемого файла
+
+                listBox.Items.Remove(item);
+
+            
                 client.FileDelete(item);
             }
             catch (Exception ex)
