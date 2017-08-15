@@ -22,10 +22,10 @@
     <MetadataSource Address="http://localhost:8080" Protocol="http" SourceId="1" />
   </MetadataSources>
   <Metadata>
-    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="fa2596a1-f735-4006-8ef9-fa6ee837b5e7" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
     <MetadataFile FileName="item.disco" MetadataType="Disco" ID="8ff6f5e6-16ea-4375-b80e-1c0d4d17a89d" SourceId="1" SourceUrl="http://localhost:8080/?disco" />
-    <MetadataFile FileName="FileServer.wsdl" MetadataType="Wsdl" ID="f47b0d5e-ac0d-4ae3-a2a9-5b18c1255b24" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
     <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="cce76848-48f5-431e-8c68-341d4ec6aaac" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd1" />
+    <MetadataFile FileName="FileServer.wsdl" MetadataType="Wsdl" ID="f47b0d5e-ac0d-4ae3-a2a9-5b18c1255b24" SourceId="1" SourceUrl="http://localhost:8080/?wsdl" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="fa2596a1-f735-4006-8ef9-fa6ee837b5e7" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd2" />
     <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="8b4f7c80-2b05-4601-9f11-f5253dfed6c8" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd3" />
     <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="3427e39b-fa42-49b4-b915-cbc2e4e5da92" SourceId="1" SourceUrl="http://localhost:8080/?xsd=xsd0" />
   </Metadata>

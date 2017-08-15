@@ -31,18 +31,12 @@
   </wsp:Policy>
   <wsdl:types>
     <xsd:schema targetNamespace="http://tempuri.org/Imports">
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://tempuri.org/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
-      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd1" namespace="http://tempuri.org/" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd0" namespace="http://schemas.microsoft.com/Message" />
+      <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd2" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
       <xsd:import schemaLocation="http://localhost:8080/?xsd=xsd3" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
     </xsd:schema>
   </wsdl:types>
-  <wsdl:message name="IFileServer_GetSum_InputMessage">
-    <wsdl:part name="parameters" element="tns:GetSum" />
-  </wsdl:message>
-  <wsdl:message name="IFileServer_GetSum_OutputMessage">
-    <wsdl:part name="parameters" element="tns:GetSumResponse" />
-  </wsdl:message>
   <wsdl:message name="IFileServer_ProvideInfo_InputMessage">
     <wsdl:part name="parameters" element="tns:ProvideInfo" />
   </wsdl:message>
@@ -73,11 +67,19 @@
   <wsdl:message name="IFileServer_RenameUploadedFile_OutputMessage">
     <wsdl:part name="parameters" element="tns:RenameUploadedFileResponse" />
   </wsdl:message>
+  <wsdl:message name="IFileServer_SplitFile_InputMessage">
+    <wsdl:part name="parameters" element="tns:SplitFile" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_SplitFile_OutputMessage">
+    <wsdl:part name="parameters" element="tns:SplitFileResponse" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_MergeFiles_InputMessage">
+    <wsdl:part name="parameters" element="tns:MergeFiles" />
+  </wsdl:message>
+  <wsdl:message name="IFileServer_MergeFiles_OutputMessage">
+    <wsdl:part name="parameters" element="tns:MergeFilesResponse" />
+  </wsdl:message>
   <wsdl:portType name="IFileServer">
-    <wsdl:operation name="GetSum">
-      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/GetSum" message="tns:IFileServer_GetSum_InputMessage" />
-      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/GetSumResponse" message="tns:IFileServer_GetSum_OutputMessage" />
-    </wsdl:operation>
     <wsdl:operation name="ProvideInfo">
       <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/ProvideInfo" message="tns:IFileServer_ProvideInfo_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/ProvideInfoResponse" message="tns:IFileServer_ProvideInfo_OutputMessage" />
@@ -98,18 +100,17 @@
       <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/RenameUploadedFile" message="tns:IFileServer_RenameUploadedFile_InputMessage" />
       <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/RenameUploadedFileResponse" message="tns:IFileServer_RenameUploadedFile_OutputMessage" />
     </wsdl:operation>
+    <wsdl:operation name="SplitFile">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/SplitFile" message="tns:IFileServer_SplitFile_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/SplitFileResponse" message="tns:IFileServer_SplitFile_OutputMessage" />
+    </wsdl:operation>
+    <wsdl:operation name="MergeFiles">
+      <wsdl:input wsaw:Action="http://tempuri.org/IFileServer/MergeFiles" message="tns:IFileServer_MergeFiles_InputMessage" />
+      <wsdl:output wsaw:Action="http://tempuri.org/IFileServer/MergeFilesResponse" message="tns:IFileServer_MergeFiles_OutputMessage" />
+    </wsdl:operation>
   </wsdl:portType>
   <wsdl:binding name="BasicHttpBinding_IFileServer" type="tns:IFileServer">
     <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
-    <wsdl:operation name="GetSum">
-      <soap:operation soapAction="http://tempuri.org/IFileServer/GetSum" style="document" />
-      <wsdl:input>
-        <soap:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ProvideInfo">
       <soap:operation soapAction="http://tempuri.org/IFileServer/ProvideInfo" style="document" />
       <wsdl:input>
@@ -155,19 +156,28 @@
         <soap:body use="literal" />
       </wsdl:output>
     </wsdl:operation>
+    <wsdl:operation name="SplitFile">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/SplitFile" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeFiles">
+      <soap:operation soapAction="http://tempuri.org/IFileServer/MergeFiles" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
   </wsdl:binding>
   <wsdl:binding name="NetTcpBinding_IFileServer" type="tns:IFileServer">
     <wsp:PolicyReference URI="#NetTcpBinding_IFileServer_policy" />
     <soap12:binding transport="http://schemas.microsoft.com/soap/tcp" />
-    <wsdl:operation name="GetSum">
-      <soap12:operation soapAction="http://tempuri.org/IFileServer/GetSum" style="document" />
-      <wsdl:input>
-        <soap12:body use="literal" />
-      </wsdl:input>
-      <wsdl:output>
-        <soap12:body use="literal" />
-      </wsdl:output>
-    </wsdl:operation>
     <wsdl:operation name="ProvideInfo">
       <soap12:operation soapAction="http://tempuri.org/IFileServer/ProvideInfo" style="document" />
       <wsdl:input>
@@ -206,6 +216,24 @@
     </wsdl:operation>
     <wsdl:operation name="RenameUploadedFile">
       <soap12:operation soapAction="http://tempuri.org/IFileServer/RenameUploadedFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="SplitFile">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/SplitFile" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="MergeFiles">
+      <soap12:operation soapAction="http://tempuri.org/IFileServer/MergeFiles" style="document" />
       <wsdl:input>
         <soap12:body use="literal" />
       </wsdl:input>

@@ -3,3 +3,4 @@ C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileSer
 C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServer\bin\Debug\FileServer.pdb
 C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServer\obj\Debug\FileServer.dll
 C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServer\obj\Debug\FileServer.pdb
+C:\Users\antko\onedrive\documents\visual studio 2017\Projects\FileServer\FileServer\obj\Debug\FileServer.csprojResolveAssemblyReference.cache

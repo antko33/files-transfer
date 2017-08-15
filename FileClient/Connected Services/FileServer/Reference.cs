@@ -15,12 +15,6 @@ namespace FileClient.FileServer {
     [System.ServiceModel.ServiceContractAttribute(ConfigurationName="FileServer.IFileServer")]
     public interface IFileServer {
         
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/GetSum", ReplyAction="http://tempuri.org/IFileServer/GetSumResponse")]
-        int GetSum(int x, int y);
-        
-        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/GetSum", ReplyAction="http://tempuri.org/IFileServer/GetSumResponse")]
-        System.Threading.Tasks.Task<int> GetSumAsync(int x, int y);
-        
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/ProvideInfo", ReplyAction="http://tempuri.org/IFileServer/ProvideInfoResponse")]
         void ProvideInfo(System.IO.Stream data);
         
@@ -50,6 +44,18 @@ namespace FileClient.FileServer {
         
         [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/RenameUploadedFile", ReplyAction="http://tempuri.org/IFileServer/RenameUploadedFileResponse")]
         System.Threading.Tasks.Task RenameUploadedFileAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/SplitFile", ReplyAction="http://tempuri.org/IFileServer/SplitFileResponse")]
+        string[] SplitFile(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/SplitFile", ReplyAction="http://tempuri.org/IFileServer/SplitFileResponse")]
+        System.Threading.Tasks.Task<string[]> SplitFileAsync(string name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/MergeFiles", ReplyAction="http://tempuri.org/IFileServer/MergeFilesResponse")]
+        void MergeFiles(string[] names, string result_name);
+        
+        [System.ServiceModel.OperationContractAttribute(Action="http://tempuri.org/IFileServer/MergeFiles", ReplyAction="http://tempuri.org/IFileServer/MergeFilesResponse")]
+        System.Threading.Tasks.Task MergeFilesAsync(string[] names, string result_name);
     }
     
     [System.CodeDom.Compiler.GeneratedCodeAttribute("System.ServiceModel", "4.0.0.0")]
@@ -77,14 +83,6 @@ namespace FileClient.FileServer {
         
         public FileServerClient(System.ServiceModel.Channels.Binding binding, System.ServiceModel.EndpointAddress remoteAddress) : 
                 base(binding, remoteAddress) {
-        }
-        
-        public int GetSum(int x, int y) {
-            return base.Channel.GetSum(x, y);
-        }
-        
-        public System.Threading.Tasks.Task<int> GetSumAsync(int x, int y) {
-            return base.Channel.GetSumAsync(x, y);
         }
         
         public void ProvideInfo(System.IO.Stream data) {
@@ -125,6 +123,22 @@ namespace FileClient.FileServer {
         
         public System.Threading.Tasks.Task RenameUploadedFileAsync(string name) {
             return base.Channel.RenameUploadedFileAsync(name);
+        }
+        
+        public string[] SplitFile(string name) {
+            return base.Channel.SplitFile(name);
+        }
+        
+        public System.Threading.Tasks.Task<string[]> SplitFileAsync(string name) {
+            return base.Channel.SplitFileAsync(name);
+        }
+        
+        public void MergeFiles(string[] names, string result_name) {
+            base.Channel.MergeFiles(names, result_name);
+        }
+        
+        public System.Threading.Tasks.Task MergeFilesAsync(string[] names, string result_name) {
+            return base.Channel.MergeFilesAsync(names, result_name);
         }
     }
 }

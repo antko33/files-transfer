@@ -1,5 +1,6 @@
 ﻿using System.ServiceModel;
 using System.IO;
+using System.Collections.Generic;
 
 namespace FileServer
 {
@@ -21,5 +22,11 @@ namespace FileServer
 
         [OperationContract]
         void RenameUploadedFile(string name);
+
+        [OperationContract]
+        List<string> SplitFile(string name);
+
+        [OperationContract]
+        void MergeFiles(string[] names, string result_name);
     }
 }
