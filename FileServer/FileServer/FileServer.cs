@@ -30,9 +30,10 @@ namespace FileServer
             FileStream file_w = File.Open(tmp_name, FileMode.Create);
 
             // Читаем поток
-            while (data.Read(bytes, 0, BUFFER_SIZE) > 0)
+            int size;
+            while ((size = data.Read(bytes, 0, BUFFER_SIZE)) > 0)
             {
-                file_w.Write(bytes, 0, BUFFER_SIZE);
+                file_w.Write(bytes, 0, size);
             }
             file_w.Close();
         }

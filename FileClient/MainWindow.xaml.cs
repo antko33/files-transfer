@@ -98,9 +98,14 @@ namespace FileClient
                         byte[] bytes = new byte[BUFFER_SIZE];
                         FileStream file_w = new FileStream(Path.Combine(dirName, part.Split('\\').Last()), FileMode.Create);
 
-                        while (file.Read(bytes, 0, BUFFER_SIZE) > 0)    //  Чтение из потока
+                        int size;
+                        while ((size = file.Read(bytes, 0, BUFFER_SIZE)) > 0)    //  Чтение из потока
                         {
-                            file_w.Write(bytes, 0, BUFFER_SIZE);
+                            //foreach (byte one in bytes)
+                            //{
+                            //    file_w.WriteByte(one);
+                            //}
+                            file_w.Write(bytes, 0, size);
                         }
                         file_w.Close();
                         file.Close();
